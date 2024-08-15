@@ -13,6 +13,7 @@ class ShowResultsFragment : Fragment() {
     private lateinit var binding: FragmentShowResultsBinding
     private var email: String? = null
     private var password: String? = null
+    private var newUser: Boolean = false
     private val userDb = mutableMapOf(
         "alan@gmail.com" to "123456",
         "juan@hotmail.com" to "abcd",
@@ -26,6 +27,7 @@ class ShowResultsFragment : Fragment() {
         arguments?.let {
             email = it.getString("USER_EMAIL")
             password = it.getString("USER_PASSWORD")
+            newUser = it.getBoolean("NEW_USER")
         }
     }
     // OnCreateView inflate the layout for this fragment and return the root view of the binding object created
@@ -42,7 +44,7 @@ class ShowResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     val result = userDb[email.toString()]
-    if (userDb[email.toString()] == password) {
+    if (userDb[email.toString()] == password || newUser ) {
         // If the email and password are in the userDb show a message that the user is welcome
         binding.tvInfo.text = "Welcome to the App $email"
         binding.tvEmailResult.text = "Your Email is : $email"
@@ -71,10 +73,11 @@ class ShowResultsFragment : Fragment() {
     // and show the email and password in the layout of the HomeToSignIn fragment when the user click on the button SignIn
     companion object {
         @JvmStatic
-        fun newInstance(email: String, password: String) = ShowResultsFragment().apply {
+        fun newInstance(email: String, password: String, newUser: Boolean = false) = ShowResultsFragment().apply {
             arguments = Bundle().apply{
                 putString("USER_EMAIL", email)
                 putString("USER_PASSWORD", password)
+                putBoolean("NEW_USER", newUser)
             }
         }
 

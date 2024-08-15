@@ -5,47 +5,39 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import mx.com.yourlawyer.androidbasic12.R
-import mx.com.yourlawyer.androidbasic12.databinding.FragmentHomeToSignInBinding
 import mx.com.yourlawyer.androidbasic12.databinding.FragmentRegisterBinding
 
-class HomeToSignIn : Fragment() {
-    private lateinit var binding: FragmentHomeToSignInBinding
+
+class RegisterFragment : Fragment() {
+    private lateinit var binding : FragmentRegisterBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentHomeToSignInBinding.inflate(inflater, container, false)
+        binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setHasOptionsMenu(true)
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-
-        binding.btnSignIn.setOnClickListener {
+        binding.btnSave.setOnClickListener {
+            val name = binding.etName.text.toString()
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
+            val newUser = true
 
-            if (email.isNotEmpty()){
+            if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()){
                 parentFragmentManager.beginTransaction()
-                    .replace(R.id.flHome, ShowResultsFragment.newInstance(email, password))
+                    .replace(R.id.flHome, ShowResultsFragment.newInstance(email, password, newUser))
                     .addToBackStack("ShowResultsFragment").commit()
             }
         }
-        binding.tvCreateAccount.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flHome, RegisterFragment.newInstance())
-                .addToBackStack("RegisterFragment").commit()
-        }
     }
-
     companion object {
         @JvmStatic
-        fun newInstance() = HomeToSignIn()
+        fun newInstance() = RegisterFragment()
     }
 }

@@ -16,11 +16,7 @@ class HomeActivityExercise : AppCompatActivity() {
 
          binding = ActivityHomeExerciseBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // binding.tvFinal.text = "Texto final"
 
-//        binding.tvTitle.text = "Your Lawyer"
-//        binding.btnSignIn.text = "Sign In"
-//        binding.tvCreateAccount.text = "Not account yet? Create Account"
 
         supportFragmentManager.beginTransaction()
             .add(R.id.flHome, HomeToSignIn.newInstance())
