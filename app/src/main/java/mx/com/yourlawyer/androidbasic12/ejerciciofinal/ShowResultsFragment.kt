@@ -1,12 +1,13 @@
 package mx.com.yourlawyer.androidbasic12.ejerciciofinal
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import mx.com.yourlawyer.androidbasic12.R
 import mx.com.yourlawyer.androidbasic12.databinding.FragmentShowResultsBinding
+import androidx.cardview.widget.CardView
 
 
 class ShowResultsFragment : Fragment() {
@@ -20,7 +21,6 @@ class ShowResultsFragment : Fragment() {
         "pedro@gmail.com" to "987654"
     )
 
-
     // OnCreate receive the arguments from newInstance method and assign them to the variables email and password
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,56 +30,76 @@ class ShowResultsFragment : Fragment() {
             newUser = it.getBoolean("NEW_USER")
         }
     }
+
     // OnCreateView inflate the layout for this fragment and return the root view of the binding object created
     // in the binding object we have the views of the layout and we can access them by using the binding object
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         binding = FragmentShowResultsBinding.inflate(inflater, container, false)
         return binding.root
     }
-// OnViewCreated show the email and password in the layout of the ShowResultsFragment
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
-    val result = userDb[email.toString()]
-    if (userDb[email.toString()] == password || newUser ) {
-        // If the email and password are in the userDb show a message that the user is welcome
-        binding.tvInfo.text = "Welcome to the App $email"
-        binding.tvEmailResult.text = "Your Email is : $email"
-        binding.tvPasswordResult.text = "Your Password is: $password"
-    }else if(userDb[email.toString()] != password && userDb[email.toString()] != null){
-        // If the email is in the userDb but the password is not correct
-        // show a message that the password is incorrect
-        binding.tvInfo.text = "The Password is incorrect, please try again"
-        binding.tvEmailResult.text = ""
-        binding.tvPasswordResult.text = ""
-    }else{
-        // If the email is not in the userDb show a message that the user is not registered
-        binding.tvInfo.text = "The User not registered, please create an account"
-        binding.tvEmailResult.text = ""
-        binding.tvPasswordResult.text = ""
-        }
 
+    // OnViewCreated show the email and password in the layout of the ShowResultsFragment
+// and manage the visibility of the images and text based on the user's input
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val result = userDb[email.toString()]
+        if (userDb[email.toString()] == password || newUser) {
+            // Mostrar las vistas correspondientes cuando el usuario es nuevo o las credenciales coinciden
+            binding.cardEmailResult.visibility = View.VISIBLE
+            binding.cardPasswordResult.visibility = View.VISIBLE
+            binding.imageWelcome.visibility = View.VISIBLE
+            binding.imageMew.visibility = View.VISIBLE
+
+            // Configurar los textos de las etiquetas
+            binding.tvEmailResult.text = "Your Email is: $email"
+            binding.tvPasswordResult.text = "Your Password is: $password"
+
+            // Ocultar el mensaje de error si lo hubiera
+            binding.cardErrorMessage.visibility = View.GONE
+            binding.imageErrorMew.visibility = View.GONE
+            binding.cardUnregisteredUser.visibility = View.GONE
+            binding.imageUnregisteredMiu.visibility = View.GONE
+        } else if (userDb[email.toString()] != password && userDb[email.toString()] != null) {
+            // Mostrar el mensaje de error si la contraseña es incorrecta y ocultar las otras vistas
+            binding.cardErrorMessage.visibility = View.VISIBLE
+            binding.imageErrorMew.visibility = View.VISIBLE
+            binding.tvErrorMessage.text = "The Password is incorrect, please try again"
+
+            binding.cardEmailResult.visibility = View.GONE
+            binding.cardPasswordResult.visibility = View.GONE
+            binding.imageWelcome.visibility = View.GONE
+            binding.imageMew.visibility = View.GONE
+            binding.cardUnregisteredUser.visibility = View.GONE
+            binding.imageUnregisteredMiu.visibility = View.GONE
+        } else {
+            // Mostrar el mensaje de error si el usuario no está registrado
+            binding.cardUnregisteredUser.visibility = View.VISIBLE
+            binding.imageUnregisteredMiu.visibility = View.VISIBLE
+            binding.tvUnregisteredUser.text = "The User is not registered, please create an account"
+
+            binding.cardEmailResult.visibility = View.GONE
+            binding.cardPasswordResult.visibility = View.GONE
+            binding.imageWelcome.visibility = View.GONE
+            binding.imageMew.visibility = View.GONE
+            binding.cardErrorMessage.visibility = View.GONE
+            binding.imageErrorMew.visibility = View.GONE
+        }
     }
 
-    // Companion object to create a new instance of the fragment with the email and password arguments
-    // and put them in a bundle and return the bundle to the newInstance method
-    // and return the newInstance method to the onCreateView method in the HomeToSignIn fragment
-    // and pass the bundle to the newInstance method in the HomeToSignIn fragment to create a new instance of the ShowResultsFragment
-    // and pass the email and password to the newInstance method in the ShowResultsFragment to create a new instance of the ShowResultsFragment
-    // and pass the email and password to the ShowResultsFragment to show the email and password in the layout of the ShowResultsFragment
-    // and show the email and password in the layout of the HomeToSignIn fragment when the user click on the button SignIn
+    // Companion object para crear una nueva instancia del fragment con los argumentos de correo y contraseña
     companion object {
         @JvmStatic
-        fun newInstance(email: String, password: String, newUser: Boolean = false) = ShowResultsFragment().apply {
-            arguments = Bundle().apply{
-                putString("USER_EMAIL", email)
-                putString("USER_PASSWORD", password)
-                putBoolean("NEW_USER", newUser)
+        fun newInstance(email: String, password: String, newUser: Boolean = false) =
+            ShowResultsFragment().apply {
+                arguments = Bundle().apply {
+                    putString("USER_EMAIL", email)
+                    putString("USER_PASSWORD", password)
+                    putBoolean("NEW_USER", newUser)
+                }
             }
-        }
-
     }
 }

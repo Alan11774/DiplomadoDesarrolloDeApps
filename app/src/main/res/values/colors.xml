@@ -7,4 +7,7 @@
     <color name="text_color">#FFFFFF</color>
     <color name="text_color_hint">#D9D9D9</color>
     <color name="text_color_title">#000000</color>
+    <color name="purpleBackground">#6A1B9A</color>
+    <color name="cardBackground">#FFD700</color>
+    <color name="cardBackgroundColor">#FFD700</color>
 </resources>
