@@ -11,10 +11,10 @@
         android:id="@+id/tvTittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your Lawyer" />
+        android:text="YourLawyer" />
     <TextView
         android:id="@+id/tvEmail"
-        android:text="Enter your Email"
+        android:text= "@string/label_enter_your_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/tvPassword"
-        android:text="Enter your Password"
+        android:text="@string/label_enter_your_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
@@ -32,12 +32,12 @@
         android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/btnSignIn"
-        android:text="Sign In"
+        android:text="@string/label_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/tvCreateAccount"
-        android:text="Not account yet? Create Account"
+        android:text="@string/label_not_account_yet_Create_Account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

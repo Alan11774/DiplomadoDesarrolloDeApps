@@ -2,4 +2,25 @@
     <string name="app_name">AndroidBasic12</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_continue">Continue</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_enter_your_name">Enter Your Name</string>
+    <string name="label_enter_your_surname">Enter Your Surname</string>
+    <string name="label_enter_your_email">Enter Your Email</string>
+    <string name="label_enter_your_password">Enter Your Password</string>
+    <string name="label_not_account_yet_Create_Account">Not account yet? Create Account</string>
+    <string name="label_sign_in">Sign In</string>
+    <string name="label_sign_up">Sign Up</string>
+    <string name="label_register_title">Register</string>
+    <string name="label_name">Name:</string>
+    <string name="label_surname">Surname:</string>
+    <string name="label_email">Email:</string>
+    <string name="label_password">Password:</string>
+    <string name="label_man">Man</string>
+    <string name="label_woman">Woman</string>
+    <string name="label_no_especify">No especify</string>
+    <string name="label_gender">Gender:</string>
+    <string name="label_accept_terms">I accept terms and conditions</string>
+    <string name="label_save">Save</string>
+
 </resources>

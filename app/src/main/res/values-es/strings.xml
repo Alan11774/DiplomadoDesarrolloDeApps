@@ -3,4 +3,22 @@
     <string name="app_name">AndroidBasico12</string>
     <string name="label_continue">Continuar</string>
     <string name="label_cancel">Cancelar</string>
+    <string name="label_enter_your_name">Ingresa Tu Nombre</string>
+    <string name="label_enter_your_surname">Ingresa Tu Apellido</string>
+    <string name="label_enter_your_email">Ingresa Tu Email</string>
+    <string name="label_enter_your_password">Ingresa Tu Contraseña</string>
+    <string name="label_not_account_yet_Create_Account">¿No tienes una cuenta? Crea una</string>
+    <string name="label_sign_in">Iniciar Sesión</string>
+    <string name="label_sign_up">Registrarse</string>
+    <string name="label_register_title">Registrarse</string>
+    <string name="label_name">Nombre:</string>
+    <string name="label_surname">Apellido:</string>
+    <string name="label_email">Email:</string>
+    <string name="label_password">Contraseña:</string>
+    <string name="label_man">Hombre</string>
+    <string name="label_woman">Mujer</string>
+    <string name="label_no_especify">No especificar</string>
+    <string name="label_gender">Genero:</string>
+    <string name="label_accept_terms">Acepto los terminos y condiciones</string>
+    <string name="label_save">Guardar</string>
 </resources>
