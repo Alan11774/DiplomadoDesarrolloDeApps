@@ -17,8 +17,8 @@ class ShowResultsFragment : Fragment() {
     private var newUser: Boolean = false
     private val userDb = mutableMapOf(
         "alan@gmail.com" to "123456",
-        "juan@hotmail.com" to "abcd",
-        "pedro@gmail.com" to "987654"
+        "enigma@hotmail.com" to "abcd",
+        "sebastian@gmail.com" to "987654"
     )
 
     // OnCreate receive the arguments from newInstance method and assign them to the variables email and password

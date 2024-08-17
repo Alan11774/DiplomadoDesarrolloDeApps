@@ -6,40 +6,42 @@
     android:orientation="vertical"
     tools:context=".ejerciciofinal.HomeToSignIn">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvTittle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="YourLawyer" />
     <TextView
         android:id="@+id/tvEmail"
-        android:text= "@string/label_enter_your_email"
+        android:text="@string/label_enter_your_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF" />
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        style="@style/EditTextWhiteHint"/>
     <TextView
         android:id="@+id/tvPassword"
         android:text="@string/label_enter_your_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF" />
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        style="@style/EditTextWhiteHint"/>
     <Button
         android:id="@+id/btnSignIn"
         android:text="@string/label_sign_in"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF0000"
+        android:textColor="#FFFFFF"/>
     <TextView
         android:id="@+id/tvCreateAccount"
         android:text="@string/label_not_account_yet_Create_Account"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

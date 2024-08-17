@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AndroidBasico12</string>
+    <string name="app_name">Pokémon</string>
     <string name="label_continue">Continuar</string>
     <string name="label_cancel">Cancelar</string>
     <string name="label_enter_your_name">Ingresa Tu Nombre</string>
@@ -19,6 +19,6 @@
     <string name="label_woman">Mujer</string>
     <string name="label_no_especify">No especificar</string>
     <string name="label_gender">Genero:</string>
-    <string name="label_accept_terms">Acepto los terminos y condiciones</string>
+    <string name="label_accept_terms">Acepto los términos y condiciones</string>
     <string name="label_save">Guardar</string>
 </resources>

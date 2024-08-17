@@ -10,7 +10,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ejerciciofinal.RegisterFragment">
 
-        <!-- TODO: Update blank fragment layout -->
+
         <TextView
             android:id="@+id/tvEditProfile"
             android:text="@string/label_register_title"
@@ -31,7 +31,7 @@
 
             <ImageView
                 android:id="@+id/ivProfile"
-                android:src="@drawable/w1"
+                android:src="@drawable/pikachu"
                 android:layout_below="@id/tvEditProfile"
                 android:layout_centerHorizontal="true"
                 android:scaleType="centerCrop"
